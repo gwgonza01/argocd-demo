@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beta-app
+  labels:
+    app: beta-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beta-nginx
+  template:
+    metadata:
+      labels:
+        app: beta-nginx
+    spec:
+      containers:
+      - name: nginx-beta-container
+        image: nginx:latest
